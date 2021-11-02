@@ -19,8 +19,7 @@ def log(update, context):
     sendLogFile(context.bot, update)
 
 botcmnd = [
-  BotCommand(f'{BotCommands.ListCommand}', ' 🔎 Search on team drive✨'),
-  BotCommand(f'{BotCommands.LogCommand}','📄 Get Logs [owner only]'),
+  BotCommand(f'{BotCommands.ListCommand}', ' 🔎 Search on team drive✨')
 
   ]
 
