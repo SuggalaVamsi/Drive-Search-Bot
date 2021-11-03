@@ -10,7 +10,7 @@ from telegram import ParseMode, BotCommand
 def start(update, context):
     LOGGER.info('UID: {} - UN: {} - MSG: {}'.format(update.message.chat.id,update.message.chat.username,update.message.text))
     if update.message.chat.type == "private" :
-        sendMessage(f"Hey <b>{update.message.chat.first_name}</b>. Welcome to <b>LoaderX Bot</b>", context.bot, update)
+        sendMessage(f"Hey <b>{update.message.chat.first_name}</b>. Welcome to <b>Search Bot</b>", context.bot, update)
     else :
         sendMessage("Am alive :)", context.bot, update)
 
@@ -19,15 +19,13 @@ def log(update, context):
     sendLogFile(context.bot, update)
 
 botcmnd = [
-  BotCommand(f'{BotCommands.ListCommand}', ' 🔎 Search on team drive✨'),
-  BotCommand(f'{BotCommands.LogCommand}','📄 Get Logs [owner only]'),
+  BotCommand(f'{BotCommands.ListCommand}', ' 🔎 Search on team drive✨')
 
   ]
 
 def main():
 
     start_handler = CommandHandler(BotCommands.StartCommand, start, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
-    log_handler = CommandHandler(BotCommands.LogCommand, log, filters=CustomFilters.owner_filter)
 
     dispatcher.add_handler(start_handler)
     dispatcher.add_handler(log_handler)
