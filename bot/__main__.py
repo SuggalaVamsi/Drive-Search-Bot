@@ -28,7 +28,6 @@ def main():
     start_handler = CommandHandler(BotCommands.StartCommand, start, filters=CustomFilters.authorized_chat | CustomFilters.authorized_user)
 
     dispatcher.add_handler(start_handler)
-    dispatcher.add_handler(log_handler)
 
     bot.set_my_commands(botcmnd)
 
